@@ -37,6 +37,11 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.wsh</groupId>
+            <artifactId>austin-handler</artifactId>
+            <version>0.0.2</version>
+        </dependency>
     </dependencies>
 
     <properties>
