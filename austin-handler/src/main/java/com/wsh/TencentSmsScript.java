@@ -12,13 +12,15 @@ import com.tencentcloudapi.sms.v20210111.SmsClient;
 import com.tencentcloudapi.sms.v20210111.models.SendSmsRequest;
 import com.tencentcloudapi.sms.v20210111.models.SendSmsResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
 
 /**
  * @author 3y
  * @date 2021/11/6
  * 1. 发送短信接入文档：https://cloud.tencent.com/document/api/382/55981
- * 2. 推荐直接使用SDK
+ * 2. 推荐直接使用SDK调用
  * 3. 推荐使用API Explorer 生成代码
  */
 @Service
@@ -34,11 +36,21 @@ public class TencentSmsScript {
     /**
      * 账号相关
      */
-    private final static String SECRET_ID = "//";
-    private final static String SECRET_KEY = "//";
-    private static final String SMS_SDK_APP_ID = "//";
-    private static final String TEMPLATE_ID = "//";
-    private static final String SIGN_NAME = "//";
+    @Value("${tencent.sms.account.secret-id}")
+    private String SECRET_ID;
+
+    @Value("${tencent.sms.account.secret-key}")
+    private String SECRET_KEY;
+
+    @Value("${tencent.sms.account.sms-sdk-app-id}")
+    private String SMS_SDK_APP_ID;
+
+    @Value("${tencent.sms.account.template-id}")
+    private String TEMPLATE_ID;
+
+    @Value("${tencent.sms.account.sign_name}")
+    private String SIGN_NAME;
+
 
     public String send(SmsParam smsParam) {
         try {
@@ -62,7 +74,7 @@ public class TencentSmsScript {
             req.setSmsSdkAppId(SMS_SDK_APP_ID);
             req.setSignName(SIGN_NAME);
             req.setTemplateId(TEMPLATE_ID);
-            String[] templateParamSet1 = {"3333"};
+            String[] templateParamSet1 = {smsParam.getContent()};
             req.setTemplateParamSet(templateParamSet1);
             req.setSessionContext(IdUtil.fastSimpleUUID());
 
