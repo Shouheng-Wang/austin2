@@ -27,7 +27,7 @@ public class AustinApplication {
     public String hello() {
 
         SmsParam smsParam = SmsParam.builder()
-                .phones(new HashSet<>(Arrays.asList("13719193845")))
+                .phones(new HashSet<>(Arrays.asList("//")))
                 .content("3333")
                 .build();
 
