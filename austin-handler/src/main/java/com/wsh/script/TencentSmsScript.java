@@ -130,7 +130,9 @@ public class TencentSmsScript implements SmsScript {
      * 初始化 client
      */
     private SmsClient init() {
+        // 实例化一个认证对象，入参需要传入腾讯云账户 SecretId，SecretKey。
         Credential cred = new Credential(SECRET_ID, SECRET_KEY);
+        // 实例化一个http选项，可选的，没有特殊需求可以跳过
         HttpProfile httpProfile = new HttpProfile();
         httpProfile.setEndpoint(URL);
         ClientProfile clientProfile = new ClientProfile();
