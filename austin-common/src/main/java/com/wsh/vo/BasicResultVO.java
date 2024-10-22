@@ -1,6 +1,6 @@
 package com.wsh.vo;
 
-import com.wsh.constant.RespStatusEnum;
+import com.wsh.enums.RespStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

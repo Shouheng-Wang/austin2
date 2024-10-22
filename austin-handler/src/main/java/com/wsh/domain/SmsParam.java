@@ -1,4 +1,4 @@
-package com.wsh.pojo;
+package com.wsh.domain;
 
 import lombok.Builder;
 import lombok.Data;

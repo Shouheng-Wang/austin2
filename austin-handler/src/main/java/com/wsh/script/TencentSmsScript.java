@@ -8,7 +8,7 @@ import com.google.common.base.Throwables;
 import com.tencentcloudapi.sms.v20210111.models.SendStatus;
 import com.wsh.domain.SmsRecord;
 import com.wsh.enums.SmsStatus;
-import com.wsh.pojo.SmsParam;
+import com.wsh.domain.SmsParam;
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.common.profile.ClientProfile;
@@ -73,7 +73,7 @@ public class TencentSmsScript implements SmsScript {
 
             return assembleSmsRecord(smsParam,response);
 
-        } catch (TencentCloudSDKException e) {
+        } catch (Exception e) {
             log.error("send tencent sms fail!{},params:{}",
                     Throwables.getStackTraceAsString(e), JSON.toJSONString(smsParam));
             return null;
@@ -130,9 +130,7 @@ public class TencentSmsScript implements SmsScript {
      * 初始化 client
      */
     private SmsClient init() {
-        // 实例化一个认证对象，入参需要传入腾讯云账户 SecretId，SecretKey。
         Credential cred = new Credential(SECRET_ID, SECRET_KEY);
-        // 实例化一个http选项，可选的，没有特殊需求可以跳过
         HttpProfile httpProfile = new HttpProfile();
         httpProfile.setEndpoint(URL);
         ClientProfile clientProfile = new ClientProfile();
@@ -142,4 +140,6 @@ public class TencentSmsScript implements SmsScript {
     }
 
 }
+
+
 

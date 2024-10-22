@@ -1,7 +1,6 @@
 package com.wsh.domain;
 
 import com.wsh.pipeline.ProcessModel;
-import com.wsh.pojo.TaskInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,27 +19,21 @@ import java.util.List;
 @Builder
 public class SendTaskModel implements ProcessModel {
 
-
     /**
-     * 请求类型 10:single 20:batch
+     * 消息模板Id
      */
-    private int requestType;
+    private Long messageTemplateId;
 
     /**
-     * 请求参数  single 接口
-     */
-    private MessageParam messageParam;
-
-    /**
-     * 请求参数  batch 接口
+     * 请求参数
      */
     private List<MessageParam> messageParamList;
 
-
     /**
-     * 发送任务信息
+     * 发送任务的信息
      */
-    private TaskInfo taskInfo;
+    private List<TaskInfo> taskInfo;
 
 
 }
+

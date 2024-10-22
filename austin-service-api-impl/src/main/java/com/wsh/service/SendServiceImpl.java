@@ -4,13 +4,13 @@ import com.wsh.domain.BatchSendRequest;
 import com.wsh.domain.SendRequest;
 import com.wsh.domain.SendResponse;
 import com.wsh.domain.SendTaskModel;
-import com.wsh.enums.RequestType;
 import com.wsh.pipeline.ProcessContext;
 import com.wsh.pipeline.ProcessController;
-import com.wsh.pojo.TaskInfo;
-import org.aspectj.util.LangUtil;
+import com.wsh.vo.BasicResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
 
 /**
  * 发送接口
@@ -26,14 +26,15 @@ public class SendServiceImpl implements SendService  {
     public SendResponse send(SendRequest sendRequest) {
 
         SendTaskModel sendTaskModel = SendTaskModel.builder()
-                .requestType(RequestType.SINGLE.getCode())
-                .messageParam(sendRequest.getMessageParam())
-                .taskInfo(TaskInfo.builder().messageTemplateId(sendRequest.getMessageTemplateId()).build())
+                .messageTemplateId(sendRequest.getMessageTemplateId())
+                .messageParamList(Arrays.asList(sendRequest.getMessageParam()))
                 .build();
 
         ProcessContext context = ProcessContext.builder()
                 .code(sendRequest.getCode())
-                .processModel(sendTaskModel).build();
+                .processModel(sendTaskModel)
+                .needBreak(false)
+                .response(BasicResultVO.success()).build();
 
         ProcessContext process = processController.process(context);
 
@@ -43,14 +44,15 @@ public class SendServiceImpl implements SendService  {
     @Override
     public SendResponse batchSend(BatchSendRequest batchSendRequest) {
         SendTaskModel sendTaskModel = SendTaskModel.builder()
-                .requestType(RequestType.BATCH.getCode())
+                .messageTemplateId(batchSendRequest.getMessageTemplateId())
                 .messageParamList(batchSendRequest.getMessageParamList())
-                .taskInfo(TaskInfo.builder().messageTemplateId(batchSendRequest.getMessageTemplateId()).build())
                 .build();
 
         ProcessContext context = ProcessContext.builder()
                 .code(batchSendRequest.getCode())
-                .processModel(sendTaskModel).build();
+                .processModel(sendTaskModel)
+                .needBreak(false)
+                .response(BasicResultVO.success()).build();
 
         ProcessContext process = processController.process(context);
 
@@ -59,4 +61,3 @@ public class SendServiceImpl implements SendService  {
 
 
 }
-

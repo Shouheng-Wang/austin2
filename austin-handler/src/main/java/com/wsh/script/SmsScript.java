@@ -2,7 +2,7 @@ package com.wsh.script;
 
 
 import com.wsh.domain.SmsRecord;
-import com.wsh.pojo.SmsParam;
+import com.wsh.domain.SmsParam;
 
 import java.util.List;
 

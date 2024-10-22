@@ -1,14 +1,17 @@
-package com.wsh.pojo;
+package com.wsh.domain;
 
+import com.wsh.dto.ContentModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import java.util.Set;
 
 /**
  * 发送任务信息
+ *
  * @author 3y
  */
 @Data
@@ -24,6 +27,7 @@ public class TaskInfo {
 
     /**
      * 业务Id(数据追踪使用)
+     * 生成逻辑参考
      */
     private Long businessId;
 
@@ -53,9 +57,12 @@ public class TaskInfo {
     private Integer msgType;
 
     /**
-     * 发送文案内容
+     * 发送文案模型
+     * message_template表存储的content是JSON(所有内容都会塞进去)
+     * 不同的渠道要发送的内容不一样(比如发push会有img，而短信没有)
+     * 所以会有ContentModel
      */
-    private String content;
+    private ContentModel contentModel;
 
     /**
      * 发送账号（邮件下可有多个发送账号、短信可有多个发送账号..）
@@ -68,7 +75,7 @@ public class TaskInfo {
     private Integer deduplicationTime;
 
     /**
-     * 是否夜间 屏蔽
+     * 是否夜间屏蔽
      * 0:不屏蔽
      * 1：屏蔽
      */
