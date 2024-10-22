@@ -43,8 +43,8 @@ spring:
 
   # redis 相关配置 TODO
   redis:
-    host:
-    port:
+    host: localhost
+    port: 6379
     password:
 
 # tomcat / HikariPool(数据库连接池 配置） TODO
