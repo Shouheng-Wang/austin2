@@ -1,7 +1,7 @@
 ![](https://tva1.sinaimg.cn/large/008i3skNgy1gwn3mgftzaj30p00an0t1.jpg)
 
 <p align="center">
-  <a href="#已完成内容"><img src="https://img.shields.io/badge/Author-3y-orange.svg" alt="作者"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Author-3y-orange.svg" alt="作者"></a>
   <a href="https://gitee.com/zhongfucheng/austin"><img src="https://gitee.com/zhongfucheng/austin/badge/star.svg?theme=dark" alt="gitee Starts"></a>
   <a href="https://gitee.com/zhongfucheng/austin"><img src="https://gitee.com/zhongfucheng/austin/badge/fork.svg?theme=dark" alt="gitee Starts"></a>
   <a href="https://github.com/ZhongFuCheng3y/austin"><img src="https://img.shields.io/github/forks/ZhongFuCheng3y/austin.svg?style=flat&label=GithubFork"></a> 
@@ -50,16 +50,9 @@ austin项目**核心流程**：`austin-api`接收到发送消息请求，直接�
 
 ## 已完成内容
 
-截止11-21号：
+![](https://tva1.sinaimg.cn/large/008i3skNgy1gx1xz00093j31b90u0dj4.jpg)
 
-- Maven+SpringBoot项目搭建
-- logback日志记录项目运行时信息
-- 引入common/guava/Hutool/Lombok/fastjson/OkHttp工具包
-- 接入腾讯云渠道发送一条短信
-- 使用SpringData JPA将短信发送记录存储至MySQL
-- 完成对Kafka接入
-- 接入层(api)代码架构实现(责任链模式)
-
+1204最近更新：消费层实现数据隔离
 
 
 **Java3y**公众号在持续更新austin系列文章，**保姆级**讲解搭建项目的过程（包括技术选型以及一些业务的探讨）以及相关环境的搭建。**扫下面的码直接关注，带你了解整个项目**
@@ -75,11 +68,5 @@ austin项目**核心流程**：`austin-api`接收到发送消息请求，直接�
 **对线面试官**公众号持续更新**面试系列**文章（对线面试官系列），深受各大开发的好评，已有不少的同学通过对线面试官系列得到BATTMD等一线大厂的的offer。一个**讲人话的面试系列**，八股文不再是背诵。
 
 <img align="center" src='https://tva1.sinaimg.cn/large/008i3skNgy1gtlvty8zo5j60u00u0q5602.jpg' width=300px height=300px />
-
-
-如果你觉得有帮助，想要打赏作者，那么可以通过这个收款码打赏我，**金额不重要，心意最重要**。主要是我可以通过这个打赏情况来看我的心血有没有价值。
-
-<img src='https://tva1.sinaimg.cn/large/00831rSTly1gcuu0j4wwqj30u014qako.jpg' width=200px height=200px /><img src='https://tva1.sinaimg.cn/large/00831rSTly1gcuuckh3s4j30rc0yo7jr.jpg' width=200px height=200px />
-
 
 
