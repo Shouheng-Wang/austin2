@@ -7,11 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 
+
 /**
  * @author 3y
  * 发送各个渠道的handler
  */
 public abstract class Handler {
+
+    /**
+     * 标识渠道的Code
+     * 子类初始化的时候指定
+     */
+    protected Integer channelCode;
+
 
     @Autowired
     private HandlerHolder handlerHolder;
@@ -21,9 +29,7 @@ public abstract class Handler {
      */
     @PostConstruct
     private void init() {
-        for (ChannelType channelType : ChannelType.values()) {
-            handlerHolder.putHandler(channelType.getCode(), this);
-        }
+        handlerHolder.putHandler(channelCode, this);
     }
 
     public void doHandler(TaskInfo taskInfo) {
@@ -39,3 +45,4 @@ public abstract class Handler {
     public abstract void handler(TaskInfo taskInfo);
 
 }
+

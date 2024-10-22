@@ -1,6 +1,7 @@
 package com.wsh.handler;
 
 import com.wsh.domain.TaskInfo;
+import com.wsh.enums.ChannelType;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,6 +11,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class EmailHandler extends Handler {
+
+    public EmailHandler() {
+        channelCode = ChannelType.EMAIL.getCode();
+    }
 
     @Override
     public void handler(TaskInfo taskInfoList) {

@@ -7,6 +7,7 @@ import com.wsh.domain.SmsRecord;
 import com.wsh.domain.SmsParam;
 import com.wsh.domain.TaskInfo;
 import com.wsh.dto.SmsContentModel;
+import com.wsh.enums.ChannelType;
 import com.wsh.script.SmsScript;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,6 +28,10 @@ public class SmsHandler extends Handler {
     @Autowired
     private SmsScript smsScript;
 
+
+    public SmsHandler() {
+        channelCode = ChannelType.SMS.getCode();
+    }
 
     @Override
     public void handler(TaskInfo taskInfo) {
