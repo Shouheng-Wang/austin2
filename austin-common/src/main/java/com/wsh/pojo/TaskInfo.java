@@ -1,15 +1,20 @@
 package com.wsh.pojo;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
 /**
  * 发送任务信息
+ * @author 3y
  */
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class TaskInfo {
 
     /**
@@ -18,7 +23,7 @@ public class TaskInfo {
     private Long messageTemplateId;
 
     /**
-     * 业务Id
+     * 业务Id(数据追踪使用)
      */
     private Long businessId;
 
@@ -63,11 +68,10 @@ public class TaskInfo {
     private Integer deduplicationTime;
 
     /**
-     * 是否夜间屏蔽
+     * 是否夜间 屏蔽
      * 0:不屏蔽
      * 1：屏蔽
      */
     private Integer isNightShield;
-
 
 }

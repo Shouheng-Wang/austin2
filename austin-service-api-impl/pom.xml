@@ -17,6 +17,11 @@
             <artifactId>austin-service-api</artifactId>
             <version>0.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.wsh</groupId>
+            <artifactId>austin-support</artifactId>
+            <version>0.0.2</version>
+        </dependency>
     </dependencies>
 
     <properties>

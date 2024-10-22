@@ -2,14 +2,17 @@ package com.wsh.controller;
 
 import com.wsh.handler.SmsHandler;
 import com.wsh.pojo.TaskInfo;
-import com.wsh.pojo.vo.BasicResultVO;
+import com.wsh.vo.BasicResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+
+/**
+ * @author 三歪
+ */
 
 @RestController
 public class SendController {
@@ -40,3 +43,4 @@ public class SendController {
     }
 
 }
+

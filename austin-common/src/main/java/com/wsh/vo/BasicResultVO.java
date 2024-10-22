@@ -1,4 +1,4 @@
-package com.wsh.pojo.vo;
+package com.wsh.vo;
 
 import com.wsh.constant.RespStatusEnum;
 import lombok.AllArgsConstructor;

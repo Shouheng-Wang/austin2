@@ -1,9 +1,19 @@
 package com.wsh.pipeline;
 
+import com.wsh.vo.BasicResultVO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * 责任链上下文
  * @author 3y
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class ProcessContext {
 
     /**
@@ -20,6 +30,11 @@ public class ProcessContext {
      * 责任链中断的标识
      */
     private Boolean needBreak = false;
+
+    /**
+     * 流程处理的结果
+     */
+    BasicResultVO response = BasicResultVO.success();
 
 }
 
