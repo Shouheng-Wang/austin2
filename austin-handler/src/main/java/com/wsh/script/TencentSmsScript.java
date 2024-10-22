@@ -6,6 +6,7 @@ import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Throwables;
 import com.tencentcloudapi.sms.v20210111.models.SendStatus;
+import com.wsh.constant.AustinConstant;
 import com.wsh.domain.SmsRecord;
 import com.wsh.enums.SmsStatus;
 import com.wsh.domain.SmsParam;
@@ -66,9 +67,7 @@ public class TencentSmsScript implements SmsScript {
     public List<SmsRecord> send(SmsParam smsParam) {
         try {
             SmsClient client = init();
-
             SendSmsRequest request = assembleReq(smsParam);
-
             SendSmsResponse response = client.SendSms(request);
 
             return assembleSmsRecord(smsParam,response);
@@ -86,13 +85,14 @@ public class TencentSmsScript implements SmsScript {
         }
 
         List<SmsRecord> smsRecordList = new ArrayList<>();
-
         for (SendStatus sendStatus : response.getSendStatusSet()) {
+
+            // 腾讯返回的电话号有前缀，这里取巧直接翻转获取手机号
             String phone = new StringBuilder(new StringBuilder(sendStatus.getPhoneNumber())
                     .reverse().substring(0, PHONE_NUM)).reverse().toString();
 
             SmsRecord smsRecord = SmsRecord.builder()
-                    .sendDate(Integer.valueOf(DateUtil.format(new Date(), "yyyyMMdd")))
+                    .sendDate(Integer.valueOf(DateUtil.format(new Date(), AustinConstant.YYYYMMDD)))
                     .messageTemplateId(smsParam.getMessageTemplateId())
                     .phone(Long.valueOf(phone))
                     .supplierId(smsParam.getSupplierId())
@@ -140,6 +140,8 @@ public class TencentSmsScript implements SmsScript {
     }
 
 }
+
+
 
 
 

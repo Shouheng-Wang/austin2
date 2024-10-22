@@ -1,6 +1,7 @@
 package com.wsh.utils;
 
 import cn.hutool.core.date.DateUtil;
+import com.wsh.constant.AustinConstant;
 
 import java.util.Date;
 
@@ -19,7 +20,7 @@ public class TaskInfoUtils {
      * (固定16位)
      */
     public static Long generateBusinessId(Long templateId, Integer templateType) {
-        Integer today = Integer.valueOf(DateUtil.format(new Date(), "yyyyMMdd"));
+        Integer today = Integer.valueOf(DateUtil.format(new Date(), AustinConstant.YYYYMMDD));
         return Long.valueOf(String.format("%d%s", templateType * TYPE_FLAG + templateId, today));
     }
 

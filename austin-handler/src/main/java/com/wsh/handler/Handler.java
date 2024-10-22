@@ -3,6 +3,19 @@ package com.wsh.handler;
 
 import com.wsh.domain.TaskInfo;
 
+/**
+ * @author 3y
+ * 发送各个渠道的handler
+ */
 public interface Handler {
-    boolean doHandler(TaskInfo TaskInfo);
+
+    /**
+     * 统一处理的handler接口
+     *
+     * @param taskInfo
+     * @return
+     */
+    boolean doHandler(TaskInfo taskInfo);
+
+
 }

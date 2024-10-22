@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
+ * MessageTemplateController
+ * 插入模板测试类
+ * @author 3y
  */
 @RestController
 public class MessageTemplateController {
@@ -65,4 +67,3 @@ public class MessageTemplateController {
         return null;
     }
 }
-

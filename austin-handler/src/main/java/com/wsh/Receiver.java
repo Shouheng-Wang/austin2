@@ -23,7 +23,7 @@ public class Receiver {
     @Autowired
     private SmsHandler smsHandler;
 
-    @KafkaListener(topics = {"austin"}, groupId = "sms")
+    @KafkaListener(topics = "#{'${austin.topic.name}'}", groupId = "austin")
     public void consumer(ConsumerRecord<?, String> consumerRecord) {
         Optional<String> kafkaMessage = Optional.ofNullable(consumerRecord.value());
         if (kafkaMessage.isPresent()) {
@@ -37,3 +37,4 @@ public class Receiver {
     }
 
 }
+
